@@ -3,7 +3,8 @@
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Article;
-//use Illuminate\Http\Request;
+use App\Http\Requests\ArticleRequest;
+use Illuminate\Http\Request;
 use App\Http\Requests\CreateArticle;
 use Carbon\Carbon;
 
@@ -40,9 +41,20 @@ class ArticlesController extends Controller {
      * @param CreateArticle $request
      * @return Redirect
      */
-    public function store(CreateArticle $request){
+    public function store(ArticleRequest $request){
         // Protected via fillable
         Article::create($request->all());
         return redirect('articles');
     }
+    public function edit($id){
+        $article = Article::findOrFail($id);
+        return view('articles.edit',compact('article'));
+
+    }
+    public function update($id, ArticleRequest $request){
+        $article = Article::findOrFail($id);
+        $article->update($request->all());
+        return redirect('articles');
+    }
+
 }

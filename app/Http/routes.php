@@ -12,19 +12,24 @@
 */
 
 Route::get('/', 'WelcomeController@index');
-
 Route::get('home', 'HomeController@index');
-
 Route::get('contact', 'StaticController@contact');
-
 Route::get('about', 'StaticController@about');
 
+
+Route::resource('articles','ArticlesController');
+/* Removed in favour of resource
 Route::get('articles','ArticlesController@index');
-Route::get('articles/create','ArticlesController@create'); /* note: order matters */
+Route::get('articles/create','ArticlesController@create');
 Route::get('articles/{id}','ArticlesController@show');
 Route::post('articles','ArticlesController@store');
+*/
 
+
+
+/*--No need for auth just yet
 Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
 ]);
+*/
