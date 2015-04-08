@@ -27,9 +27,8 @@ Route::post('articles','ArticlesController@store');
 
 
 
-/*--No need for auth just yet
+/*--No need for auth just yet */
 Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
 ]);
-*/

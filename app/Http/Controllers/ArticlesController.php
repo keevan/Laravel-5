@@ -7,6 +7,7 @@ use App\Http\Requests\ArticleRequest;
 use Illuminate\Http\Request;
 use App\Http\Requests\CreateArticle;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 
 
 class ArticlesController extends Controller {
@@ -42,8 +43,9 @@ class ArticlesController extends Controller {
      * @return Redirect
      */
     public function store(ArticleRequest $request){
-        // Protected via fillable
-        Article::create($request->all());
+        // Binds user with an article.
+        $article = new Article($request->all());
+        Auth::user()->articles()->save($article);
         return redirect('articles');
     }
     public function edit($id){
