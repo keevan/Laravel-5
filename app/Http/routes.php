@@ -20,7 +20,9 @@ Route::get('contact', 'StaticController@contact');
 Route::get('about', 'StaticController@about');
 
 Route::get('articles','ArticlesController@index');
+Route::get('articles/create','ArticlesController@create'); /* note: order matters */
 Route::get('articles/{id}','ArticlesController@show');
+Route::post('articles','ArticlesController@store');
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',
