@@ -12,9 +12,10 @@ use Illuminate\Support\Facades\Auth;
 
 class ArticlesController extends Controller {
 
-
+    /**
+     *  Apply the auth only to the create/edit methods (will redirect to same page after auth)
+     */
     public function __construct(){
-        //Apply the auth only to the create/edit methods (will redirect to same page after auth)
         $this->middleware('auth',['only' => ['create','edit']]);
     }
 	//
@@ -53,13 +54,29 @@ class ArticlesController extends Controller {
         flash('Successfully created an article');
         return redirect('articles');
     }
+
+    /**
+     * Displays the article edit page
+     * @param Article $article
+     * @return \Illuminate\View\View
+     */
     public function edit(Article $article){
-        flash('Successfully edited the article');
+
         return view('articles.edit',compact('article'));
 
     }
+
+    /**
+     *
+     * Updates the article and flashes a message to the user.
+     *
+     * @param Article $article
+     * @param ArticleRequest $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
     public function update(Article $article, ArticleRequest $request){
 
+        flash('Successfully edited the article');
         $article->update($request->all());
         return redirect('articles');
     }
