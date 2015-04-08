@@ -12,6 +12,11 @@ use Illuminate\Support\Facades\Auth;
 
 class ArticlesController extends Controller {
 
+
+    public function __construct(){
+        //Apply the auth only to the create/edit methods (will redirect to same page after auth)
+        $this->middleware('auth',['only' => ['create','edit']]);
+    }
 	//
     /**
      * Show all articles
