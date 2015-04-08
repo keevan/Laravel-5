@@ -49,12 +49,12 @@ class ArticlesController extends Controller {
      */
     public function store(ArticleRequest $request){
         // Binds user with an article.
-        $article = new Article($request->all());
-        Auth::user()->articles()->save($article);
+        Auth::user()->articles()->create($request->all());
+        flash('Successfully created an article');
         return redirect('articles');
     }
     public function edit(Article $article){
-
+        flash('Successfully edited the article');
         return view('articles.edit',compact('article'));
 
     }
