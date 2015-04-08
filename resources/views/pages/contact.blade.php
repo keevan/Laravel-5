@@ -5,8 +5,8 @@
     <title>Contact me</title>
 </head>
 <body>
-<h1>Contact me</h1>
-<p>Contact details: </p>
+<h1>Contact {{ $name }}</h1>
+<p>Contact details: {{ $email }}</p>
 </body>
 
 

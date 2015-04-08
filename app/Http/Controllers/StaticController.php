@@ -29,7 +29,9 @@ class StaticController extends Controller {
      */
     public function contact()
     {
-        return view('pages.contact');
+        $name = "Kevin Pham";
+        $email = "keevan.pham@gmail.com";
+        return view('pages.contact',compact('name','email'));
     }
 
     /**
