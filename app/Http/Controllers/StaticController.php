@@ -41,6 +41,8 @@ class StaticController extends Controller {
      */
     public function about()
     {
-        return view('pages.about');
+        $names = ['Jon Snow', 'Jane Doe', 'Bruce Wayne'];
+
+        return view('pages.about',compact('names'));
     }
 }
