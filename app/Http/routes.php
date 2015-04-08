@@ -19,6 +19,8 @@ Route::get('contact', 'StaticController@contact');
 
 Route::get('about', 'StaticController@about');
 
+Route::get('articles','ArticlesController@index');
+Route::get('articles/{id}','ArticlesController@show');
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',
