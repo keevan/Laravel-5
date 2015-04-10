@@ -11,10 +11,10 @@
 |
 */
 
-Route::get('/', 'WelcomeController@index');
-Route::get('home', 'HomeController@index');
-Route::get('contact', 'StaticController@contact');
-Route::get('about', 'StaticController@about');
+
+Route::get('/home', 'HomeController@index');
+Route::get('/contact', 'StaticController@contact');
+Route::get('/about', 'StaticController@about');
 
 
 Route::resource('articles','ArticlesController');
@@ -32,3 +32,6 @@ Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
 ]);
+
+
+Route::get('/', 'WelcomeController@index');

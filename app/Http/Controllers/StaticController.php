@@ -19,7 +19,8 @@ class StaticController extends Controller {
      */
     public function __construct()
     {
-        $this->middleware('guest');
+        //Removed this to stop automatic redirection if logged in.
+        //$this->middleware('guest');
     }
 
     /**

@@ -1,4 +1,4 @@
-@extends('example')
+@extends('base')
 
 @section('content')
     <h1>Edit {!! $article->title !!}</h1>

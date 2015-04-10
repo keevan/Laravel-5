@@ -35,6 +35,7 @@ class RedirectIfAuthenticated {
 	{
 		if ($this->auth->check())
 		{
+            //Default redirect to home screen once auth'd
 			return new RedirectResponse(url('/home'));
 		}
 

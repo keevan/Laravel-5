@@ -40,6 +40,7 @@ class Authenticate {
 			}
 			else
 			{
+                flash()->error("Please log in to view content.");
 				return redirect()->guest('auth/login');
 			}
 		}
